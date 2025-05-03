@@ -141,6 +141,23 @@ Example:
   # Result: Result/Ok/tag ([1, 3], [5, 6])
 ```
 
+#### List/get
+
+```python
+#{
+  Retrieve `value` from the `list` based on the `index` position
+#}
+def List/get(xs: List(T), index: u24) -> Result(T, String):
+```
+Example:
+```python
+  # Get first value from list
+  list = [1,3,4,5,6]
+  result = List/get(list, 0)
+  return result
+  # Result: Result/Ok/tag (1)
+```
+
 ## Result
 
 ```python

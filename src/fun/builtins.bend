@@ -65,6 +65,17 @@ List/filter (List/Cons x xs) pred =
     (List/filter xs pred)
   }
 
+#{ Retrieve `value` from the `list` based on the `index` position. #}
+def List/get(xs: List(T), index: u24) -> Result(T, String):
+  match xs:
+    case List/Cons:
+      if index == 0:
+        return Result/Ok(xs.head)
+      else:
+        return List/get(xs.tail, (index - 1))
+    case List/Nil:
+      return Result/Err("Index out of bounds")
+
 #{ Checks if two strings are equal. #}
 String/equals (s1: String) (s2: String) : u24
 String/equals (String/Nil) (String/Nil) = 1
